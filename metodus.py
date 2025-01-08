@@ -1,6 +1,5 @@
 from random import randint
 
-
 def dobas(dobasok, db=23000):
     i = 0
     while i < db:
@@ -9,18 +8,16 @@ def dobas(dobasok, db=23000):
         dobasok.append(dob1 + dob2) 
         i += 1
 
-
 def statisztika(dobasok):
     
     elofordulas = [0] * 11 
     for dob in dobasok:
-        elofordulas[dob - 2] += 1  
+        elofordulas[dob - 2] += 1 
 
+    max_dobas = max(elofordulas)  
 
-    max_dobas = max(elofordulas)
-
-
-    for i in range(2, 13):
+    for i in range(2, 13):  
         if elofordulas[i - 2] > 0:  
-            csillagok = '*' * (elofordulas[i - 2] * 50 // max_dobas)
-            print(f"{i} {csillagok} ({elofordulas[i - 2]}db)")
+            csillagok = '*' * (elofordulas[i - 2] * 50 // max_dobas) 
+            
+            print(f"{i:2} {csillagok:<50} ({elofordulas[i - 2]:>4} db)")
